@@ -35,7 +35,7 @@ def get_words(corpus,
     # 按照最后一个分数进行排序，由大到小排序
     sorted_word_info_scores = sorted(word_info_scores.items(),key=lambda item:item[1][-1],reverse = True)
     # 只获取单词
-    new_words = [item[0] for item in sorted_word_info_scores.keys()]
+    new_words = [item[0] for item in sorted_word_info_scores]
     # 获取topk个单词
     if top_k > 1:             
         return [''.join(l) for l in new_words[:top_k]]
