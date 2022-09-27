@@ -7,12 +7,12 @@ Created on Tue Aug 25 10:30:26 2020
 
 
 import math
-from hellonlp.ChineseWordSegmentation.hyperparameters import Hyperparamters as hp
+from ChineseWordSegmentation.hyperparameters import Hyperparamters as hp
 
 
 def entropy_of_list(parent_ngrams_freq):
     """
-    Calcul entropy  by candidate's neighbor frequence
+    Calcul entropy  by candidate's neighbor frequence， 计算交叉熵, parent_ngrams_freq:[5]
     """
     counts = sum(parent_ngrams_freq)
     ngram_probabilitys = map(lambda x: x/counts,parent_ngrams_freq)

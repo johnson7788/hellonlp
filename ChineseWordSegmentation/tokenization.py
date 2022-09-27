@@ -10,7 +10,7 @@ Created on Tue Aug 25 17:01:07 2020
 import six
 import collections
 import unicodedata
-from hellonlp.ChineseWordSegmentation.utils import ToolWord
+from ChineseWordSegmentation.utils import ToolWord
 
 
 SPIECE_UNDERLINE = u"▁".encode("utf-8")

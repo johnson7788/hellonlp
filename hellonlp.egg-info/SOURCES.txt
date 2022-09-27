@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+ChineseWordSegmentation/__init__.py
+ChineseWordSegmentation/discovery_word.py
+ChineseWordSegmentation/hyperparameters.py
+ChineseWordSegmentation/modules.py
+ChineseWordSegmentation/probability.py
+ChineseWordSegmentation/segment_entropy.py
+ChineseWordSegmentation/tokenization.py
+ChineseWordSegmentation/utils.py
+hellonlp.egg-info/PKG-INFO
+hellonlp.egg-info/SOURCES.txt
+hellonlp.egg-info/dependency_links.txt
+hellonlp.egg-info/requires.txt
+hellonlp.egg-info/top_level.txt

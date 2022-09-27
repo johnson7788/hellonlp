@@ -7,9 +7,9 @@ Created on Mon Aug 24 20:25:51 2020
 
 
 
-from hellonlp.ChineseWordSegmentation.modules import get_scores 
-from hellonlp.ChineseWordSegmentation.hyperparameters import Hyperparamters as hp
-from hellonlp.ChineseWordSegmentation.utils import sentence_split_regex,remove_characters_irregular
+from ChineseWordSegmentation.modules import get_scores
+from ChineseWordSegmentation.hyperparameters import Hyperparamters as hp
+from ChineseWordSegmentation.utils import sentence_split_regex,remove_characters_irregular
 
     
     
@@ -32,9 +32,11 @@ def get_words(corpus,
         corpus_splits = remove_characters_irregular(corpus, chunk_size)
     # Get words and scores
     word_info_scores = get_scores(corpus_splits,min_n,max_n,chunk_size,min_freq)
-    # Sorted by score
-    new_words = [item[0] for item in sorted(word_info_scores.items(),key=lambda item:item[1][-1],reverse = True)]
-    # Get the top k words
+    # 按照最后一个分数进行排序，由大到小排序
+    sorted_word_info_scores = sorted(word_info_scores.items(),key=lambda item:item[1][-1],reverse = True)
+    # 只获取单词
+    new_words = [item[0] for item in sorted_word_info_scores.keys()]
+    # 获取topk个单词
     if top_k > 1:             
         return [''.join(l) for l in new_words[:top_k]]
     elif top_k < 1:           
@@ -44,12 +46,10 @@ def get_words(corpus,
     
 if __name__ == '__main__':
     ## 加载数据
-    from hellonlp.ChineseWordSegmentation.utils import load_excel_only_first_sheet
+    from ChineseWordSegmentation.utils import load_excel_only_first_sheet
     f = 'data/data.xlsx'
     contents = load_excel_only_first_sheet(f).fillna('')['content'].tolist()[:100]
-    print(len(contents))  
-    #
-    #contents = ['23','dsad','dwq']
+    print(len(contents))
     words = get_words(contents)  
     print(words[:100])
 
